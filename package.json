@@ -1,0 +1,14 @@
+{
+  "name": "kokomi",
+  "version": "0.0.1",
+  "description": "A GUI IRC chat client",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kennydo/kokomi.git"
+  },
+  "main": "./src/browser/main.js",
+  "devDependencies": {
+    "electron-prebuilt": "^0.25.3"
+  }
+}
