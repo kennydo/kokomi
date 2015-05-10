@@ -13,13 +13,6 @@ var template = [
     label: 'Electron',
     submenu: [
       {
-        label: 'About Electron',
-        selector: 'orderFrontStandardAboutPanel:'
-      },
-      {
-        type: 'separator'
-      },
-      {
         label: 'Services',
         submenu: []
       },
@@ -27,25 +20,8 @@ var template = [
         type: 'separator'
       },
       {
-        label: 'Hide Electron',
-        accelerator: 'Command+H',
-        selector: 'hide:'
-      },
-      {
-        label: 'Hide Others',
-        accelerator: 'Command+Shift+H',
-        selector: 'hideOtherApplications:'
-      },
-      {
-        label: 'Show All',
-        selector: 'unhideAllApplications:'
-      },
-      {
-        type: 'separator'
-      },
-      {
         label: 'Quit',
-        accelerator: 'Command+Q',
+        accelerator: 'CommandOrControl+Q',
         click: function() { app.quit(); }
       },
     ]
@@ -55,12 +31,12 @@ var template = [
     submenu: [
       {
         label: 'Reload',
-        accelerator: 'Command+R',
+        accelerator: 'CommandOrControl+R',
         click: function() { BrowserWindow.getFocusedWindow().reloadIgnoringCache(); }
       },
       {
         label: 'Toggle DevTools',
-        accelerator: 'Alt+Command+I',
+        accelerator: 'Alt+CommandOrControl+I',
         click: function() { BrowserWindow.getFocusedWindow().toggleDevTools(); }
       },
     ]
