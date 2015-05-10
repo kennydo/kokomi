@@ -1,6 +1,7 @@
 var app = require('app');  // Module to control application life.
 var Menu = require('menu');
 var BrowserWindow = require('browser-window');  // Module to create native browser window.
+var path = require('path');
 
 // Report crashes to our server.
 require('crash-reporter').start();
@@ -57,7 +58,7 @@ app.on('ready', function() {
   mainWindow = new BrowserWindow({width: 800, height: 600});
 
   // and load the index.html of the app.
-  mainWindow.loadUrl('file://' + __dirname + '/../../static/index.html');
+  mainWindow.loadUrl('file://' + __dirname + '/../../dist/index.html');
 
   menu = Menu.buildFromTemplate(template);
 

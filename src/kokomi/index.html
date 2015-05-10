@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Kokomi</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{content-for 'head'}}
+
+    <script>
+      // Copied from https://github.com/robwebdev/ember-atom-shell
+      // some logic to make ember-cli play nicely with electron.
+
+      /**
+       * electron's 'require' conflicts with ember's require(js)
+       */
+      window.atom_require = window.require;
+      delete window.require;
+      delete window.module;
+
+      /**
+       * locationType auto breaks the Atom app. The browser supports
+       * html5 pushState but it breaks possibly due to the app
+       * index.html file being served over the file:// protocol.
+       * Ember CLI injects the enviroment config into the page as an escaped
+       * JSON string into the content attribute of a meta tag.
+       */
+      var metaEls = window.document.getElementsByTagName("meta");
+      var configEl = metaEls['kokomi/config/environment'];
+      var config = JSON.parse(unescape(configEl.content));
+      config.locationType = 'hash';
+      configEl.content = escape(JSON.stringify(config));
+    </script>
+
+    <link rel="stylesheet" href="assets/vendor.css">
+    <link rel="stylesheet" href="assets/kokomi.css">
+
+    {{content-for 'head-footer'}}
+  </head>
+  <body>
+    {{content-for 'body'}}
+
+    <script src="assets/vendor.js"></script>
+    <script src="assets/kokomi.js"></script>
+
+    {{content-for 'body-footer'}}
+  </body>
+</html>
